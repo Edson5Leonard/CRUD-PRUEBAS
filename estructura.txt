@@ -1,0 +1,24 @@
+text
+mi-crud/
+├── config/
+│   └── db.js                (Singleton)
+├── controllers/
+│   └── empleadoController.js
+├── factories/
+│   └── empleadoFactory.js   (Factory)
+├── models/
+│   └── empleadoModel.js    
+├── repositories/
+│   └── empleadoRepository.js
+├── routes/
+│   └── empleadoRoutes.js
+├── views/
+│   ├── layout.ejs
+│   ├── empleados.ejs         (lista con filtros)
+│   └── empleado-form.ejs     (crear/editar)
+├── public/
+│   └── css/
+│       └── style.css
+├── .env
+├── app.js
+└── package.json

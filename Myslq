@@ -1,0 +1,47 @@
+CREATE DATABASE gestion_empleados;
+
+USE gestion_empleados;
+
+CREATE TABLE tipos_empleado (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre CHAR(35) NOT NULL
+);
+
+
+CREATE TABLE areas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre CHAR(35) NOT NULL
+);
+
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre CHAR(35) NOT NULL,
+    email CHAR(45) UNIQUE NOT NULL,
+    salario DECIMAL(10,2),
+    fecha_ingreso DATE,
+    tipo_id INT,
+    area_id INT,
+    FOREIGN KEY (tipo_id) REFERENCES tipos_empleado(id),
+    FOREIGN KEY (area_id) REFERENCES areas(id)
+);
+
+
+
+-- Insertar datos --
+
+INSERT INTO tipos_empleado (nombre) VALUES
+('Administrativo'),
+('Operativo'),
+('Supervisor');
+
+INSERT INTO areas (nombre) VALUES
+('Sistemas'),
+('RRHH'),
+('Logística');
+
+INSERT INTO empleados 
+(nombre, email, salario, fecha_ingreso, tipo_id, area_id)
+VALUES 
+('Omar Olivos', 'omar@email.com', 2800.00, '2026-01-10', 2, 3),
+('Carlos Díaz', 'carlos@email.com', 4000.00, '2025-12-15', 3, 1);
+

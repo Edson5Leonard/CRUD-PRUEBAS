@@ -1,0 +1,27 @@
+{
+  "name": "crud-patrones-dise-o",
+  "version": "1.0.0",
+  "description": "Se va realizar un Crud con 3 patrones de diseño.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Edson5Leonard/CRUD-PATRONES-DISE-O.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Edson5Leonard/CRUD-PATRONES-DISE-O/issues"
+  },
+  "homepage": "https://github.com/Edson5Leonard/CRUD-PATRONES-DISE-O#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-ejs-layouts": "^2.5.1",
+    "mysql2": "^3.18.2"
+  }
+}

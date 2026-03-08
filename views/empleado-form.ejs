@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= empleado ? 'Editar' : 'Nuevo' %> Empleado</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1><%= empleado ? 'Editar Empleado' : 'Nuevo Empleado' %></h1>
+    <form action="<%= action %>" method="POST" class="form-empleado">
+        <div>
+            <label>Nombre:</label>
+            <input type="text" name="nombre" value="<%= empleado ? empleado.nombre : '' %>" required>
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" value="<%= empleado ? empleado.email : '' %>" required>
+        </div>
+        <div>
+            <label>Salario:</label>
+            <input type="number" step="0.01" name="salario" value="<%= empleado ? empleado.salario : '' %>" required>
+        </div>
+        <div>
+            <label>Tipo:</label>
+            <select name="tipo_id" required>
+                <option value="">Seleccione tipo</option>
+                <option value="1" <%= empleado && empleado.tipo_id == 1 ? 'selected' : '' %>>Administrativo</option>
+                <option value="2" <%= empleado && empleado.tipo_id == 2 ? 'selected' : '' %>>Operativo</option>
+                <option value="3" <%= empleado && empleado.tipo_id == 3 ? 'selected' : '' %>>Supervisor</option>
+            </select>
+        </div>
+        <div>
+            <label>Área:</label>
+            <select name="area_id" required>
+                <option value="">Seleccione área</option>
+                <option value="1" <%= empleado && empleado.area_id == 1 ? 'selected' : '' %>>Sistemas</option>
+                <option value="2" <%= empleado && empleado.area_id == 2 ? 'selected' : '' %>>RRHH</option>
+                <option value="3" <%= empleado && empleado.area_id == 3 ? 'selected' : '' %>>Logística</option>
+            </select>
+        </div>
+        <div class="acciones">
+            <button type="submit"><%= empleado ? 'Actualizar' : 'Guardar' %></button>
+            <a href="/empleados">Cancelar</a>
+        </div>
+    </form>
+</body>
+</html>

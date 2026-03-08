@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Empleados</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Empleados</h1>
+    <a href="/empleados/nuevo" class="btn">➕ Nuevo Empleado</a>
+
+    <!-- Filtros -->
+    <form method="GET" action="/empleados" class="filtros">
+        <input type="text" name="nombre" placeholder="Nombre" value="<%= filtros.nombre %>">
+        <select name="tipo_id">
+            <option value="">Todos los tipos</option>
+            <option value="1" <%= filtros.tipo_id == 1 ? 'selected' : '' %>>Administrativo</option>
+            <option value="2" <%= filtros.tipo_id == 2 ? 'selected' : '' %>>Operativo</option>
+            <option value="3" <%= filtros.tipo_id == 3 ? 'selected' : '' %>>Supervisor</option>
+        </select>
+        <select name="area_id">
+            <option value="">Todas las áreas</option>
+            <option value="1" <%= filtros.area_id == 1 ? 'selected' : '' %>>Sistemas</option>
+            <option value="2" <%= filtros.area_id == 2 ? 'selected' : '' %>>RRHH</option>
+            <option value="3" <%= filtros.area_id == 3 ? 'selected' : '' %>>Logística</option>
+        </select>
+        <button type="submit">Filtrar</button>
+        <a href="/empleados" class="btn-limpiar">Limpiar</a>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Salario</th>
+                <th>Tipo</th>
+                <th>Área</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% empleados.forEach(emp => { %>
+            <tr>
+                <td><%= emp.id %></td>
+                <td><%= emp.nombre %></td>
+                <td><%= emp.email %></td>
+                <td>S/. <%= Number(emp.salario).toFixed(2) %></td>
+                <td><%= emp.tipo %></td>
+                <td><%= emp.area %></td>
+                <td>
+                    <a href="/empleados/<%= emp.id %>/editar" class="btn-editar">Editar</a>
+                    <form action="/empleados/<%= emp.id %>/eliminar" method="POST" style="display:inline;">
+                        <button type="submit" class="btn-eliminar" onclick="return confirm('¿Eliminar empleado?')">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>
