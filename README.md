@@ -142,3 +142,10 @@ Cada empleado pertenece a:
 La base de datos está diseñada bajo principios de normalización y modelo relacional,
 permitiendo escalabilidad y mantenimiento profesional.
 
+
+## Tecnologias a instalar:
+
+Instala Jest como dependencia de desarrollo:
+npm install --save-dev jest
+
+
